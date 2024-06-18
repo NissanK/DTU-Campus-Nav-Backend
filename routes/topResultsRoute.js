@@ -3,8 +3,6 @@ const MongoClient = require('mongodb').MongoClient;
 
 const router = Router();
 
-const { MongoClient } = require('mongodb');
-
 const uri = process.env.DB_CONNECTION_ADMIN;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
