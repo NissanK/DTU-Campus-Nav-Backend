@@ -3,7 +3,28 @@ const MongoClient = require('mongodb').MongoClient;
 
 const router = Router();
 
-const client = new MongoClient(process.env.DB_CONNECTION_ADMIN);
+const { MongoClient } = require('mongodb');
+
+const uri = process.env.DB_CONNECTION_ADMIN;
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 45000 // Increase the timeout to 45 seconds
+});
+
+async function run() {
+  try {
+    await client.connect();
+    console.log("Connected to MongoDB");
+    // Proceed with database operations here...
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await client.close();
+  }
+}
+
+run();
 
 router.get('/all', async (req, res) => {
     try {
