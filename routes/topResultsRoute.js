@@ -32,8 +32,10 @@ router.get('/all', async (req, res) => {
         const data = await db.collection('locations')
         .find()
         .sort({clickCount: -1})
-        .limit(15)
+        .limit(16)
         .toArray();
+
+        data.shift(); // remove the first element from the array which is the "academic departments"
 
         res.json(data);
     } catch (error) {

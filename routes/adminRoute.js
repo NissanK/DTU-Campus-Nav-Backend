@@ -30,7 +30,7 @@ router.post('/signin', async (req, res) => {
         })
     } else {
         res.status(411).json({
-            message: "Incorrect email and pass"
+            message: "Incorrect username or pass"
         })
     }
 });
