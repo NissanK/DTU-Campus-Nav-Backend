@@ -6,6 +6,7 @@ const cors = require('cors');
 const adminRoute = require("./routes/adminRoute");
 const topResultsRoute = require("./routes/topResultsRoute");
 const locationRoute = require("./routes/locationRoute");
+const authSecretMiddleware = require('./middleware/authSecretMiddleware');
 const { initialiseFirebase } = require('./libraries/firebase');
 
 const app = express();
@@ -23,8 +24,8 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 3000;
 
 app.use("/admin", adminRoute);
-app.use("/topResults", topResultsRoute);
-app.use("/location", locationRoute);
+app.use("/topResults",authSecretMiddleware, topResultsRoute);
+app.use("/location",authSecretMiddleware, locationRoute);
 
 app.get('/health', (req, res) => {
     res.status(200).send('OK');
