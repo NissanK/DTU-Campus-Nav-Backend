@@ -6,7 +6,7 @@ function authSecretMiddleware(req,res,next){
         next();
     }else{
         res.status(401).json({
-            message: "isti aasani se data nhi milne waala"
+            message: "itni aasani se data nhi milne waala"
         })
     }
 }

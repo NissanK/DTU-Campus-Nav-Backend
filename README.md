@@ -2,7 +2,7 @@
 
 **DTU CampusNav** is a comprehensive navigation system designed to help users efficiently navigate the DTU campus. This project leverages a modern tech stack to deliver a robust, user-friendly experience.
 
-Frontend Repository: [DTU-Campus-Nav](https://github.com/NissanK/DTU-Campus-Nav) 
+Frontend Repository: [DTU-CampusNav](https://github.com/NissanK/DTU-CampusNav) 
 
 ## Table of Contents
 - [Features](#features)
